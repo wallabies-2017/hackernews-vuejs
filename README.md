@@ -1,6 +1,4 @@
 # hackernews-vuejs
-Hacker News Clone
-===================
 
 This challenge is to create your own [Hacker News](http://news.ycombinator.com) from scratch. Install Windows and get Dreamweaver fired up, we're on a time travel trip back to 1999! 
 
@@ -22,7 +20,8 @@ We need atleast these models from Hacker News that need to built out and display
 
 Go through Hacker News thoroughly and get the flow.
 
-Work on your CSS skills - make your site as visually close to Hacker News as possible.
+Using Bootstrap 3 make your site as visually close to Hacker News as possible.
+
 
 ## Use webpack-simple to compile your Single File Components
 
