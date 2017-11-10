@@ -13,6 +13,7 @@ Go through Hacker News thoroughly and get the flow.
 We need atleast these models from Hacker News that need to built out and displayed:
 
     Posts
+        - _id => String[unixtimestamp `+(new Date())`]
         - title => String
         - content => String
         - createdAt => Date[ or unixtimestamp `+(new Date())`]
@@ -20,6 +21,7 @@ We need atleast these models from Hacker News that need to built out and display
         - username => String
         - comments => Array[Comments]
     Comments
+        - _id => String[unixtimestamp `+(new Date())`]
         - content => String
         - createdAt => Date[ or unixtimestamp `+(new Date())`]
         - updatedAt => Date[ or unixtimestamp `+(new Date())`]
