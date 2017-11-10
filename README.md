@@ -13,8 +13,18 @@ Go through Hacker News thoroughly and get the flow.
 We need atleast these models from Hacker News that need to built out and displayed:
 
     Posts
+        - title => String
+        - content => String
+        - createdAt => Date[ or unixtimestamp `+(new Date())`]
+        - updatedAt => Date[ or unixtimestamp `+(new Date())`]
+        - username => String
+        - comments => Array[Comments]
     Comments
-    **Bonus** Nested Comments
+        - content => String
+        - createdAt => Date[ or unixtimestamp `+(new Date())`]
+        - updatedAt => Date[ or unixtimestamp `+(new Date())`]
+        - username => String
+        - **Bonus** comments => Array[Comments]
 
 ### Guidelines
 
