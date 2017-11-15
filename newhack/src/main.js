@@ -11,6 +11,16 @@ import Registration from './components/Registration.vue';
 
 import store from './store/store';
 
+Vue.component("add-comment", AddComment);
+Vue.component("comment-item", CommentItem);
+Vue.component("comment-summary", CommentSummary);
+Vue.component("create-post", CreatePost);
+Vue.component("edit-comment", EditComment);
+Vue.component("edit-post", EditPost);
+Vue.component("post-item", PostItem);
+Vue.component("post-summary", PostSummary);
+Vue.component("registration", Registration);
+
 new Vue({
   el: '#app',
   store: store,

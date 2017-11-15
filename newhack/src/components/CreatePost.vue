@@ -1,21 +1,23 @@
 <template>
 	<form 
-	v-on:submit.prevent="createPost($event, subject, contet)">
-		<h1>Make a Post</h1><br>
-		<label>Subject</label>
-		<input type="text" name="subject" v-model="title">
-		<label>Composition</label>
-		<textarea 
-			rows="4" cols="50" 
-			name="content" v-model="content">
-		</textarea>
-		<button type="submit">Post</button>
+	v-on:submit.prevent="createPost($event, title, content)">
+		<div v-if="session">
+			<h1>Make a Post</h1><br>
+			<label>Title</label>
+			<input type="text" name="title" v-model="title">
+			<label>Content</label>
+			<textarea 
+				rows="4" cols="50" 
+				name="content" v-model="content">
+			</textarea>
+			<button type="submit">Post</button>
+		</div>
 	</form>
 </template>
 
 <script>
 	export default {
-		name: 'create-post',
+		name: 'createPost',
 		data: function(){
 			return {
 				title:'',
@@ -25,12 +27,15 @@
 		computed: {
 			username() {
 				return this.$store.state.username;
+			},
+			session: function(){
+				return this.$store.state.session;
 			}
 		},
 		methods: {
 			createPost: function(event, title, content){
 				this.$store.dispatch("createPost", {
-					subject: title, 
+					title: title, 
 					content: content,
 					username: this.username
 				});

@@ -1,8 +1,8 @@
 <template>
 	<form v-on:submit.prevent="editPost($event, name, description)">
-		<label>Subject</label>
+		<label>Title</label>
 		<input type="text" name="title" v-model="title">
-		<label>Composition</label>
+		<label>Content</label>
 		<textarea 
 			rows="4" cols="50" 
 			name="content" v-model="content">

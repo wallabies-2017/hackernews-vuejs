@@ -1,15 +1,16 @@
 <template>
-	<div v-if="!session">
+	
 		<form 
-		v-on:submit.prevent="register($event, subject, contet)">
-		<h1>Register</h1><br>
-			<label>username</label>
-			<input type="text" name="username">
-			<label>password</label>
-			<input type="password" name="password">
-			<button type="submit">Post</button>
+		v-on:submit.prevent="register($event, username, password)">
+			<div v-if="!session">
+				<h1>Register</h1><br>
+				<label>username</label>
+				<input type="text" name="username">
+				<label>password</label>
+				<input type="password" name="password">
+				<button type="submit">Register</button>
+			</div>
 		</form>
-	</div>
 </template>
 
 <script>
