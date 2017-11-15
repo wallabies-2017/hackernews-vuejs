@@ -8,10 +8,10 @@ import getters from './getters';
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-	debug: true,
 	state: {
 		username: '',
 		password: '',
+		session: false,
 		posts: []
 	},
 	mutations: mutations,

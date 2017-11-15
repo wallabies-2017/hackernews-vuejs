@@ -1,14 +1,23 @@
 export default {
+	register: function(context, payload){
+		var baseUser = {
+			username: null,
+			password: null
+		};
+		context.commit("register", Object.assign(baseUser, payload));
+	},
 	createPost: function(context, payload){
 		var basePost = {
 			title: null,
-    		content: null,
-    		createdAt: +(new Date()),
-    		updatedAt: +(new Date()),
-    		username: null,
-    		comments: []
+			content: null,
+			username: null,
+			createdAt: +(new Date()),
+			updatedAt: +(new Date()),
+			downVote: 0,
+			upVote: 0,
+			comments: []
 		};
-		context.commit("createPost", Object.assign(basePost, payload))
+		context.commit("createPost", Object.assign(basePost, payload));
 	},
 	editPost: function(context, payload){
 		var post = context.getters.getPost(payload.post.createdAt);
@@ -23,6 +32,7 @@ export default {
 			cleanedData.name = payload.data.content
 		}
 		if (cleanedData){
+			cleanedData.updatedAt = +(new Date())
 			context.commit("editPost", {
 				obj: post,
 				data: cleanedData
@@ -37,10 +47,12 @@ export default {
 			return false;
 		}
 		var baseComment = {
-    		content: null,
-    		createdAt: +(new Date()),
-    		updatedAt: +(new Date()),
-    		username: null,
+			content: null,
+			username: null,
+			createdAt: +(new Date()),
+			updatedAt: +(new Date()),
+			upVote: 0,
+			downVote: 0
 		};
 		context.commit("addComment", {
 			obj: post,
@@ -58,6 +70,7 @@ export default {
 			cleanedData.name = payload.data.content
 		}
 		if (cleanedData){
+			cleanedData.updatedAt = +(new Date())
 			context.commit("editPost", {
 				obj: comment,
 				data: cleanedData
@@ -73,7 +86,7 @@ export default {
 		}
 		context.commit("deleteComment", {
 			obj: post,
-			target: payload.todo.createdAt
+			target: payload.comment.createdAt
 		});
 	}
 }

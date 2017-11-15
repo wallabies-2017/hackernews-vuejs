@@ -2,10 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>newhack</title>
+    <title>news for slackers</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div is="registration"></div>
+    	<ul>
+    		<li
+    			is="post-item"
+    			v-for="thread in sharedState.posts"
+    			v-bind:post="thread"
+    		>
+    		</li>
+    	</ul>
+    	<create-post></create-post>
+    </div>
     <script src="/dist/build.js"></script>
   </body>
 </html>

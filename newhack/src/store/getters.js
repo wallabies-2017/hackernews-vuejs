@@ -9,7 +9,7 @@ export default {
 			});
 		};
 	},
-	getComment function(state, getters){
+	getComment: function(state, getters){
 		return function(postId, commentId){
 			var post = getters.getPost(postId);
 			if (post) {

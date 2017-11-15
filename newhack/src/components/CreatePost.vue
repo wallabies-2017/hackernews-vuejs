@@ -1,41 +1,41 @@
 <template>
-
-	<h1>Make a Post</h1><br>
 	<form 
 	v-on:submit.prevent="createPost($event, subject, contet)">
+		<h1>Make a Post</h1><br>
 		<label>Subject</label>
-		<input type="text" name="subject">
-		<label>Content</label>
+		<input type="text" name="subject" v-model="title">
+		<label>Composition</label>
 		<textarea 
 			rows="4" cols="50" 
-			name="content">
+			name="content" v-model="content">
 		</textarea>
 		<button type="submit">Post</button>
-	</div>
-
+	</form>
 </template>
 
 <script>
 	export default {
 		name: 'create-post',
+		data: function(){
+			return {
+				title:'',
+				content:''
+			};
+		},
 		computed: {
 			username() {
 				return this.$store.state.username;
 			}
-		}
+		},
 		methods: {
-			createPost: function($event, subject, content){
-				var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(); 
-				this.$store.state.posts.push({
-					_id: String[unixtimestamp `+(new Date())`],
-					subject: subject, 
+			createPost: function(event, title, content){
+				this.$store.dispatch("createPost", {
+					subject: title, 
 					content: content,
-					createdAt: Date[ or unixtimestamp `+(new Date())`],
-					updatedAt: Date[ or unixtimestamp `+(new Date())`],
 					username: this.username
-					upVote: 0,
-					downVote: 0
-				})
+				});
+				this.$set(this, "title", "");
+				this.$set(this, "content", "");
 			}
 		}
 	}

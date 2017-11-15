@@ -1,4 +1,9 @@
 export default {
+	register: function(state, payload){
+		this.state.username = payload.username;
+		this.state.password = payload.password;
+		this.state.session = true;
+	},
 	createPost: function(state, payload){
 		this.state.posts.push(payload);
 	},
@@ -23,7 +28,7 @@ export default {
 		}
 	},
 	deleteComment: function(state, payload){
-		_.remove(payload.obj.todos, function(value){
+		_.remove(payload.obj.comments, function(value){
 			return value._id === payload.target;
 		});
 	}
