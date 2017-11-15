@@ -1,6 +1,6 @@
 <template>
 	<form v-on:submit.prevent="editComment($event, content)">
-		<input type="text" name="content" v-model="conent">
+		<input type="text" name="content" v-model="content">
 		<button type="submit">Submit</button>
 	</form>
 </template>

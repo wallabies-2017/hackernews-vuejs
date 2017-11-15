@@ -1,5 +1,5 @@
 <template>
-	<form v-on:submit.prevent="addComment($event, title)">
+	<form v-on:submit.prevent="addComment($event, content)">
 		<input type="text" name="content" v-model="content">
 		<button type="submit">Comment</button>
 	</form>
@@ -23,10 +23,12 @@
 		},
 		methods: {
 			addComment: function(event, content){
+				console.log(content, 'ya?');
 				this.$store.dispatch("addComment", {
 					post: this.post,
 					data: {
-						content: content
+						content: content,
+						username: this.username
 					}
 				});
 				this.$set(this, "content", "")

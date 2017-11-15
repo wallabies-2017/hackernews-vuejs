@@ -18,7 +18,7 @@ export default {
 		}
 	},
 	addComment: function(state, payload){
-		this.state.comments.push(payload.data);
+		payload.obj.comments.push(payload.data);
 	},
 	editComment: function(state, payload){
 		if (payload.data.hasOwnProperty('content')){

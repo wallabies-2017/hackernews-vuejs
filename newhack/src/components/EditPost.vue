@@ -1,5 +1,5 @@
 <template>
-	<form v-on:submit.prevent="editPost($event, name, description)">
+	<form v-on:submit.prevent="editPost($event, title, content)">
 		<label>Title</label>
 		<input type="text" name="title" v-model="title">
 		<label>Content</label>
