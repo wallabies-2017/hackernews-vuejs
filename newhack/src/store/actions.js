@@ -21,21 +21,19 @@ export default {
 		context.commit("createPost", Object.assign(basePost, payload));
 	},
 	editPost: function(context, payload){
-		var post = context.getters.getPost(payload.post.createdAt);
-		console.log('actions payload', payload.data);
+		var post = context.getters.getPost(payload.post._id);
 		if (!post){
 			return false;
 		}
 		var cleanedData = {}
 		if (payload.data.hasOwnProperty('title')){
-			cleanedData.name = payload.data.title
+			cleanedData.title = payload.data.title
 		}
 		if (payload.data.hasOwnProperty('content')){
-			cleanedData.name = payload.data.content
+			cleanedData.content = payload.data.content
 		}
 		if (cleanedData){
-			console.log('actions cleanedData', cleanedData);
-			cleanedData.updatedAt = +(new Date())
+			cleanedData.updatedAt = +(new Date());
 			context.commit("editPost", {
 				obj: post,
 				data: cleanedData
@@ -65,16 +63,15 @@ export default {
 		return true;
 	},
 	editComment: function(context, payload){
-		var comment = context.getters.getPost(payload.post.createdAt, payload.comment.createdAt);
+		var comment = context.getters.getComment(payload.post._id, payload.comment._id);
 		if (!comment){
 			return false;
 		}
 		var cleanedData = {};
 		if (payload.data.hasOwnProperty('content')){
-			cleanedData.name = payload.data.content
+			cleanedData.content = payload.data.content
 		}
 		if (cleanedData){
-			cleanedData.updatedAt = +(new Date())
 			context.commit("editPost", {
 				obj: comment,
 				data: cleanedData

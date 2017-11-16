@@ -20,10 +20,10 @@ export default {
 		}
 	},
 	addComment: function(state, payload){
-		console.log(payload, 'mutation');
 		payload.obj.comments.push(payload.data);
 	},
 	editComment: function(state, payload){
+		console.log(payload.obj.content);
 		if (payload.data.hasOwnProperty('content')){
 			var upDate = +(new Date());
 			Vue.set(payload.obj, 'updatedAt', upDate);

@@ -19,7 +19,7 @@
 		},
 		methods: {
 			editComment: function(event, content){
-				this.$store.dispatch("editPost", {
+				this.$store.dispatch("editComment", {
 					post: this.post,
 					comment: this.comment,
 					data: {
