@@ -7,13 +7,13 @@
 		>
 		</comment-summary>
 		<edit-comment
-			v-if="!mode.edit"
+			v-if="mode.edit"
 			:post="post"
 			:comment="comment"
 		>
 		</edit-comment>
 		<button
-			:key="post.id"
+			:key="post._id"
 			@click="mode.edit = !mode.edit"
 		>
 			{{editMode}}

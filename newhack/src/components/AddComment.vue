@@ -23,7 +23,6 @@
 		},
 		methods: {
 			addComment: function(event, content){
-				console.log(content, 'ya?');
 				this.$store.dispatch("addComment", {
 					post: this.post,
 					data: {

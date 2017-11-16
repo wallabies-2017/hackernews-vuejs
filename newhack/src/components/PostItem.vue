@@ -4,19 +4,29 @@
 			<post-summary
 				v-if="!mode.edit"
 				:post="post"
-				:key="post.createdAt"
+				:key="post._id"
 				>
 			</post-summary>
+
+			<edit-post
+				v-if="mode.edit"
+				:post="post"
+				:key="post._id"
+			>
+				
+			</edit-post>
+
+
 		</transition-group>
 
 		<button
-			:key="post.createdAt"
+			:key="post._id"
 			@click="mode.edit = !mode.edit"
 		>
 			{{editMode}}
 		</button>
 		<button
-			:key="post.createdAt"
+			:key="post._id"
 			@click="mode.detail = !mode.edit"
 		>
 			{{detailMode}}
@@ -26,19 +36,19 @@
 			<add-comment
 				v-if="mode.detail"
 				:post="post"
-				:key="post.createdAt"
+				:key="post._id"
 			>
 			</add-comment>
 			<ul
 				v-if="mode.detail"
-				:key="post.createdAt"
+				:key="post._id"
 			>
 				<li
 					is="comment-item"
 					v-for="comment in post.comments"
 					:post="post"
 					:comment="comment"
-					:key="comment.updatedAt"
+					:key="comment._id"
 				>
 				</li>
 			</ul>

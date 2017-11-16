@@ -8,6 +8,7 @@ export default {
 	},
 	createPost: function(context, payload){
 		var basePost = {
+			_id: +(new Date()),
 			title: null,
 			content: null,
 			username: null,
@@ -21,10 +22,11 @@ export default {
 	},
 	editPost: function(context, payload){
 		var post = context.getters.getPost(payload.post.createdAt);
+		console.log('actions payload', payload.data);
 		if (!post){
 			return false;
 		}
-		var cleanData = {}
+		var cleanedData = {}
 		if (payload.data.hasOwnProperty('title')){
 			cleanedData.name = payload.data.title
 		}
@@ -32,6 +34,7 @@ export default {
 			cleanedData.name = payload.data.content
 		}
 		if (cleanedData){
+			console.log('actions cleanedData', cleanedData);
 			cleanedData.updatedAt = +(new Date())
 			context.commit("editPost", {
 				obj: post,
@@ -47,6 +50,7 @@ export default {
 			return false;
 		}
 		var baseComment = {
+			_id: +(new Date()),
 			content: null,
 			username: null,
 			createdAt: +(new Date()),
@@ -56,7 +60,7 @@ export default {
 		};
 		context.commit("addComment", {
 			obj: post,
-			data: Object.assign(baseComment, payload)
+			data: Object.assign(baseComment, payload.data)
 		});
 		return true;
 	},

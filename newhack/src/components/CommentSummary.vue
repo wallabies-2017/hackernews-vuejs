@@ -7,7 +7,8 @@
 	export default {
 		name: "commentSummary",
 		props: {
-			comment: Object
+			comment: Object,
+			post: Object
 		}
 	};
 </script>

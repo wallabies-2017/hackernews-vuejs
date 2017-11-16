@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 export default {
 	register: function(state, payload){
 		this.state.username = payload.username;
@@ -8,8 +10,8 @@ export default {
 		this.state.posts.push(payload);
 	},
 	editPost: function(state, payload){
-		date = +(new Date())
-		Vue.set(payload.obj, 'updatedAt', date);
+		var upDate = +(new Date())
+		Vue.set(payload.obj, 'updatedAt', upDate);
 		if (payload.data.hasOwnProperty('title')){
 			Vue.set(payload.obj, 'title', payload.data.title);
 		}
@@ -18,12 +20,13 @@ export default {
 		}
 	},
 	addComment: function(state, payload){
+		console.log(payload, 'mutation');
 		payload.obj.comments.push(payload.data);
 	},
 	editComment: function(state, payload){
 		if (payload.data.hasOwnProperty('content')){
-			date = +(new Date())
-			Vue.set(payload.obj, 'updatedAt', date);
+			var upDate = +(new Date());
+			Vue.set(payload.obj, 'updatedAt', upDate);
 			Vue.set(payload.obj, 'content', payload.data.content);
 		}
 	},

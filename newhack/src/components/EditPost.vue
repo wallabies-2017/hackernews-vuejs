@@ -25,6 +25,7 @@
 		},
 		methods: {
 			editPost: function(event, title, content){
+				console.log('clicked', this.post.title, this.post.content);
 				this.$store.dispatch("editPost", {
 					post: this.post,
 					data: {
